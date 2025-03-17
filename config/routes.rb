@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get "/signup", to:"users#new" 
-  root "users#new" #他にページがないため指定
+  get "/signup", to: "users#new"
+  root "users#new" # 他にページがないため指定
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
