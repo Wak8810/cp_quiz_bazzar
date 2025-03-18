@@ -1,4 +1,4 @@
-class UsersApplicationController < ApplicationController
+class Users::ApplicationController < ApplicationController
     before_action :set_user
 
     private

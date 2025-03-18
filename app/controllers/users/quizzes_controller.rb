@@ -1,4 +1,4 @@
-class UsersQuizzesController < UsersApplicationController
+class Users::QuizzesController < Users::ApplicationController
     def index
         @quizzes = @user.quizzes
     end
@@ -32,7 +32,7 @@ class UsersQuizzesController < UsersApplicationController
 
     def update
         @quiz = @user.quizzes.find(params[:id])
-        if @quiz(quiz_params).update
+        if @quiz.update(quiz_params)
             redirect_to user_quiz_path(@quiz)
         else
             render :edit
