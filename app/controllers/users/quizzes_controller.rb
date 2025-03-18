@@ -14,7 +14,7 @@ class Users::QuizzesController < Users::ApplicationController
     def create
         @quiz = @user.quizzes.build(quiz_params)
         if @quiz.save
-            redirect_to user_quizzes_path(@user), notice: "クイズを作成しました" 
+            redirect_to user_quizzes_path(@user), notice: "クイズを作成しました"
         else
             render :new
         end
