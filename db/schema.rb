@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_18_054901) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_18_141411) do
   create_table "quizzes", force: :cascade do |t|
     t.string "title", null: false
     t.text "content", null: false
@@ -23,11 +23,11 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_18_054901) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
+    t.string "name", null: false
+    t.string "email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "password_digest"
+    t.string "password_digest", null: false
   end
 
   add_foreign_key "quizzes", "users"
