@@ -1,10 +1,38 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
+body {
+  background-color: #212121; /* グレー */
+  color: #ffffff;            /* 白 */
+  font-family: Arial, sans-serif; }
+.header {
+  background-color: #fdb913; /* 黄色*/
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: bold;
+  color: #000;
+  margin-right: auto; /* 左側に寄せる */
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-link {
+  background-color: #fff;
+  color: #000;
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid #000; /*黒い枠で囲む*/
+}
+
+.nav-link:hover {
+  background-color: #fdb913; /*ホバリングしたとき色を黄色する*/
+  color: #fff;
+}
