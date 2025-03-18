@@ -1,4 +1,4 @@
-class UsersQuizOptionsController < UsersApplicationController
+class Users::Quizzes::QuizOptionsController < Users::Quizzes::ApplicationController
     before_action :set_quiz_option, only: [:edit, :update, :destroy]
 
     def index

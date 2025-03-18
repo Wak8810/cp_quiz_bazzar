@@ -1,4 +1,4 @@
-class QuizzesApplicationController < UsersApplicationController
+class Users::Quizzes::ApplicationController < Users::ApplicationController
     before_action :set_quiz
 
     private
