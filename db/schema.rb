@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_18_115628) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_19_052949) do
   create_table "quiz_options", force: :cascade do |t|
     t.boolean "correct", default: false, null: false
     t.integer "quiz_id", null: false
@@ -31,6 +31,17 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_18_115628) do
     t.index ["user_id"], name: "index_quizzes_on_user_id"
   end
 
+  create_table "solved_quizzes", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "quiz_id", null: false
+    t.integer "quiz_option_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["quiz_id"], name: "index_solved_quizzes_on_quiz_id"
+    t.index ["quiz_option_id"], name: "index_solved_quizzes_on_quiz_option_id"
+    t.index ["user_id"], name: "index_solved_quizzes_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
@@ -41,4 +52,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_18_115628) do
 
   add_foreign_key "quiz_options", "quizzes"
   add_foreign_key "quizzes", "users"
+  add_foreign_key "solved_quizzes", "quiz_options"
+  add_foreign_key "solved_quizzes", "quizzes"
+  add_foreign_key "solved_quizzes", "users"
 end
