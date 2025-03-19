@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "sessions#new" # 他にページがないため指定
+  root "quizzes#index"
   get "/signup", to: "users#new"
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
