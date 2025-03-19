@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   resources :quizzes, only: %i[index show] do
     resources :solved_quizzes, only: %i[create], module: :quizzes
-	resources :comments, only: %i[index new create destroy], module: :quizzes
+    resources :comments, only: %i[index new create destroy], module: :quizzes
   end
   resources :users do
-      resources :quizzes, module: :users do
+    resources :quizzes, module: :users do
       resources :quiz_options, only: %i[index new edit create update destroy], module: :quizzes
     end
   end
