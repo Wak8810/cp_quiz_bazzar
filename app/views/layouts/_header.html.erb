@@ -4,7 +4,7 @@
     <nav>
       <% if current_user %>
         <%= link_to 'クイズを投稿', new_user_quiz_path(current_user) %>
-        <%= link_to 'クイズを閲覧', user_quizzes_path(current_user) %>
+        <%= link_to '作成済みクイズを閲覧', user_quizzes_path(current_user) %>
         <button class=nav-link>回答履歴</button>
       <% end %>
       <% if !current_user %>

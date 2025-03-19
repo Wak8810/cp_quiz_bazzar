@@ -1,0 +1,11 @@
+<p><%= @quiz.title %></p>
+<p><%= @quiz.content %></p>
+<p><%= @quiz.explanation %></p>
+<div style="color: red;">解答達はこの下に</div>
+<%= form_with(model: @solved_quiz, url: quiz_solved_quizzes_path(@quiz), method: :post) do |f| %>
+    <% @quiz.quiz_options.shuffle.each_with_index do |option, index| %>
+        <%= f.label :quiz_option_id, option.content %>
+        <%= f.radio_button :quiz_option_id, option.id, checked: (index == 0) %>
+    <% end %>
+    <%= f.submit "解答を投稿", class: "btn btn-primary" %>
+<% end %>
