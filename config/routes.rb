@@ -4,10 +4,9 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
-    resources :quizzes, only: %i[index show] do
-      resources :comments, only: %i[index new create destroy], module: :quizzes
-    resources :solved_quizzes, only: %i[create] do
-    end
+  resources :quizzes, only: %i[index show] do
+    resources :solved_quizzes, only: %i[create], module: :quizzes
+	resources :comments, only: %i[index new create destroy], module: :quizzes
   end
   resources :users do
       resources :quizzes, module: :users do
