@@ -1,6 +1,7 @@
 class Quiz < ApplicationRecord
     belongs_to :user
     has_many :quiz_options
+    has_many :likes
     has_many :solved_quizzes
     has_many :comments
     validates :title, presence: { message: "タイトルを入力してください" }

@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     before_save { self.email = email.downcase }
     has_many :quizzes
+    has_many :likes
     has_many :solved_quizzes
     has_many :comments
     validates :name, presence: true
