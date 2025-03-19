@@ -1,4 +1,16 @@
-<%= link_to 'クイズを投稿', new_user_quiz_path(current_user) %>
-<% @quizzes.each do |quiz| %>
-    <p><%= link_to quiz.title, user_quiz_path(current_user, quiz) %></p>
-<% end %>
+<div class="p-3">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title mt-3">クイズ一覧</h5>
+            <div class="my-5">
+                <% @quizzes.each do |quiz| %>
+                    <ul class="list-group">
+                        <li class="list-group-item mb-3">
+                            <%= link_to quiz.title, user_quiz_path(current_user, quiz) %>
+                        </li>
+                    </ul>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
