@@ -2,4 +2,6 @@
 <p><%= @quiz.content %></p>
 <p><%= @quiz.explanation %></p>
 <%= link_to "編集", edit_user_quiz_path(current_user, @quiz) %>
+<!--- けさないとコンフリクト --->
+<%= link_to "選択肢を閲覧", user_quiz_quiz_options_path(current_user, @quiz) %>
 <%= button_to "削除", user_quiz_path(current_user, @quiz), method: :delete, data: { turbo_confirm: "削除してよろしいですか？" } %>

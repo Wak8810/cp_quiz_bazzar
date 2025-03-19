@@ -1,0 +1,7 @@
+<% @quiz_options.each do |option| %>
+    <p><%= option.content %></p>
+    <p><%= option.correct %></p>
+    <p><%= link_to "編集", edit_user_quiz_quiz_option_path(current_user, @quiz, option) %>
+    <%= button_to "削除", user_quiz_quiz_option_path(current_user, @quiz, option), method: :delete, data: { turbo_confirm: "削除してよろしいですか？" } %></p>
+<% end %>
+<%= link_to "選択肢追加", new_user_quiz_quiz_option_path(current_user, @quiz) %>

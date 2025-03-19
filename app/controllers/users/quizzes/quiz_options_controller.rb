@@ -12,7 +12,7 @@ class Users::Quizzes::QuizOptionsController < Users::Quizzes::ApplicationControl
     def create
         @quiz_option = @quiz.quiz_options.build(quiz_option_params)
         if @quiz_option.save
-            redirect_to user_quiz_path(@quiz)
+            redirect_to user_quiz_quiz_options_path(current_user, @quiz)
         else
             # フラッシュの文
             render :new
@@ -23,8 +23,8 @@ class Users::Quizzes::QuizOptionsController < Users::Quizzes::ApplicationControl
     end
 
     def update
-        if @quiz_option(quiz_option_params).update
-            redirect_to user_quiz_path(@quiz)
+        if @quiz_option.update(quiz_option_params)
+            redirect_to user_quiz_path(current_user, @quiz)
         else
             # フラッシュ文
             render :edit
@@ -34,7 +34,7 @@ class Users::Quizzes::QuizOptionsController < Users::Quizzes::ApplicationControl
     def destroy
         @quiz_option.destroy!
         # フラッシュ文
-        redirect_to user_quiz_path(@quiz)
+        redirect_to user_quiz_path(current_user, @quiz)
     end
 
     private
