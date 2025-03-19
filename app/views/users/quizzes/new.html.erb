@@ -1,0 +1,6 @@
+<%= form_with(model: [@user, @quiz]) do |f| %>
+    <%= f.text_field :title, placeholder: "タイトル" %>
+    <%= f.text_area :content, placeholder: "問題文" %>
+    <%= f.text_area :explanation, placeholder: "解説文" %>
+    <%= f.submit "クイズを投稿", class: "btn btn-primary" %>
+<% end %>

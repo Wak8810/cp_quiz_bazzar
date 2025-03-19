@@ -12,10 +12,14 @@
   <div class="header">
     <%= link_to 'BUZZAR', root_path, class: 'logo' %>
     <nav>
-      <button class=nav-link>クイズを作成</button>
-      <button class=nav-link>回答履歴</button>
-      <button class=nav-link>ログイン</button>
-      <button class=nav-link>登録</button>
+      <% if current_user %>
+        <%= link_to 'クイズを閲覧', user_quizzes_path(current_user) %>
+        <button class=nav-link>回答履歴</button>
+      <% end %>
+      <% if !current_user %>
+        <button class=nav-link>ログイン</button>
+        <button class=nav-link>登録</button>
+      <% end %>
     </nav>
   </div>
   <div class="content">
