@@ -1,6 +1,6 @@
 class Users::QuizzesController < Users::ApplicationController
     def index
-        @quizzes = @user.quizzes
+        @quizzes = @user.quizzes.order(created_at: :desc)
     end
 
     def show
