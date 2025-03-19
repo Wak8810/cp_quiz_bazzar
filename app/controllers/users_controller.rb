@@ -12,8 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       reset_session
       log_in @user
-      # アカウント作成成功のflash文
-      redirect_to @user notice: "アカウントを作成しました"
+      redirect_to @user, notice: "アカウントを作成しました"
     else
       render "new", status: :unprocessable_entity
     end
