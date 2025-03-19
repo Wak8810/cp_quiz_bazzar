@@ -6,7 +6,8 @@
                 <% @quizzes.each do |quiz| %>
                     <ul class="list-group">
                         <li class="list-group-item mb-3">
-                            <%= link_to quiz.title, user_quiz_path(current_user, quiz) %>
+                          <%= link_to quiz.title, user_quiz_path(current_user, quiz) %>
+                          <%= link_to "💬", quiz_comments_path(quiz), class: 'btn btn-primary' %>
                         </li>
                     </ul>
                 <% end %>
