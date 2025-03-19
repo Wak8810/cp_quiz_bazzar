@@ -1,0 +1,4 @@
+<%= form_with(model: [@user, @quiz, @quiz_option]) do |f| %>
+    <%= render 'form', f: %>
+    <%= f.submit "選択肢を投稿", class: "btn btn-primary" %>
+<% end %>
