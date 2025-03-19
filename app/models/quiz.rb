@@ -3,7 +3,8 @@ class Quiz < ApplicationRecord
     has_many :quiz_options
     has_many :likes
     has_many :solved_quizzes
-    validates :title, presence: true
-    validates :content, presence: true
-    validates :explanation, presence: true
+    has_many :comments
+    validates :title, presence: { message: "タイトルを入力してください" }
+    validates :content, presence: { message: "問題文を入力してください" }
+    validates :explanation, presence: { message: "解説を入力してください" }
 end

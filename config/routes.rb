@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :quizzes, only: %i[index show] do
     resources :solved_quizzes, only: %i[create], module: :quizzes 
     resources :likes, only: %i[create destroy], module: :quizzes
-    resources :comments, only: %i[index create destroy], module: :quizzes
+    resources :comments, only: %i[index new create destroy], module: :quizzes
   end
   resources :users do
     resources :quizzes, module: :users do

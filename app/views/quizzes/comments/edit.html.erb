@@ -1,0 +1,4 @@
+<%= form_with(model: [@user, @eomment) do |f| %>
+    <%= render 'form', form: f %>
+    <%= f.submit "コメントを変更", class: "btn btn-primary" %>
+<% end %>

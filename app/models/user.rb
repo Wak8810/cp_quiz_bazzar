@@ -3,6 +3,7 @@ class User < ApplicationRecord
     has_many :quizzes
     has_many :likes
     has_many :solved_quizzes
+    has_many :comments
     validates :name, presence: true
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: true

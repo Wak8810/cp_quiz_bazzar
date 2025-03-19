@@ -1,0 +1,9 @@
+<%= form_with(model: [@quiz, @comment]) do |f| %>
+  <div class="form-group">
+    <%= f.label :content, "コメント内容" %>
+    <%= f.text_area :content, class: "form-control" %>
+  </div>
+
+  <%= f.submit "コメントを投稿", class: "btn btn-primary" %>
+<% end %>
+
