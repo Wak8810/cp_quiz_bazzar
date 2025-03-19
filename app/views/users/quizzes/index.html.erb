@@ -1,0 +1,4 @@
+<%= link_to 'クイズを投稿', new_user_quiz_path(current_user) %>
+<% @quizzes.each do |quiz| %>
+    <p><%= link_to quiz.title, user_quiz_path(current_user, quiz) %></p>
+<% end %>
