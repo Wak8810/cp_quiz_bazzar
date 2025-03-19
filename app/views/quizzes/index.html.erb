@@ -1,3 +1,4 @@
 <% @quizzes.each do |quiz| %>
-    <p><%= link_to quiz.title, quiz_path(quiz) %></p>
+  <p><%= link_to quiz.title, quiz_path(quiz) %></p>
+  <%= link_to "💬", quiz_comments_path(quiz), class: 'btn btn-primary' %>
 <% end %>
