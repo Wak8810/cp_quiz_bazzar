@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :quizzes, module: :users do
       resources :quiz_options, only: %i[index new edit create update destroy], module: :quizzes
+      resources :comments, only: %i[index], module: :quizzes
     end
     resources :solved_quizzes, only: %i[index], module: :users, module: :quizzes
   end
