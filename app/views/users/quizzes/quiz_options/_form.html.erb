@@ -1,0 +1,7 @@
+<%= f.text_field :content, placeholder: "選択肢の一つ" %>
+    <p>
+        <%= f.label :correct, "正解" %>
+        <%= f.radio_button :correct, true %>
+        <%= f.label :correct, "不正解" %>
+        <%= f.radio_button :correct, false, checked: true %>
+    </p>
