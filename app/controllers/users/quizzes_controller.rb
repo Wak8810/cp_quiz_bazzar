@@ -14,7 +14,7 @@ class Users::QuizzesController < Users::ApplicationController
     def create
         @quiz = @user.quizzes.build(quiz_params)
         if @quiz.save
-            redirect_to user_quizzes_path
+            redirect_to user_quizzes_path(@user), notice: "クイズを作成しました"
         else
             render :new
         end
@@ -23,7 +23,7 @@ class Users::QuizzesController < Users::ApplicationController
     def destroy
         @quiz = @user.quizzes.find(params[:id])
         @quiz.destroy!
-        redirect_to user_quizzes_path
+        redirect_to user_quizzes_path(@user), notice: "クイズを削除しました"
     end
 
     def edit
@@ -33,7 +33,7 @@ class Users::QuizzesController < Users::ApplicationController
     def update
         @quiz = @user.quizzes.find(params[:id])
         if @quiz.update(quiz_params)
-            redirect_to user_quiz_path(@quiz)
+            redirect_to user_quiz_path(@quiz), notice: "内容を更新しました"
         else
             render :edit
         end
