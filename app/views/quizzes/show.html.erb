@@ -1,0 +1,11 @@
+<p>タイトル： <br><%= @quiz.title %></p>
+<p>問題： <br><%= @quiz.content %></p>
+<p>解説： <br><%= @quiz.explanation %></p>
+
+<% if Like.find_by(user_id: current_user.id, quiz_id: @quiz.id) %>
+    <%= button_to "いいね取り消し", quiz_like_path(@quiz), method: :delete %>
+<% else %>
+    <%= button_to "いいね!", quiz_likes_path(@quiz), method: :post %>
+<% end %>
+
+<%= @quiz.likes.count %>
