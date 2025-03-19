@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     before_save { self.email = email.downcase }
     has_many :quizzes
-    has_meny :solved_quizzes
+    has_many :solved_quizzes
     has_many :comments
     validates :name, presence: true
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
