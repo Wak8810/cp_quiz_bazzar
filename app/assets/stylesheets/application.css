@@ -37,6 +37,15 @@ nav {
   color: #fff;
 }
 
+.border-box {
+  background-color: #fff;
+  color: #000;
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid #000; /*黒い枠で囲む*/
+}
 /*quizzesのindexについて*/
 /* .quiz_index {
   margin-left: 80px;
