@@ -2,7 +2,16 @@
   <div class="card bg-dark">
     <div class="card-body">
       <h5 class="card-title mt-3 fw-bold fs-4 text-light">クイズを作成</h5>
-      <%= form_for [@user, @quiz] do |f| %>
+      <%= form_for [@user, @quiz], data: { turbo: false} do |f| %>
+        <% if @quiz.errors.any? %>
+            <div class="alert alert-danger">
+                <ul class="mb-0">
+                <% @quiz.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+                </ul>
+            </div>
+        <% end %>
         <%= render 'form', form: f %>
         <%= f.fields_for :quiz_options do |quiz_option| %>
         <li class="list-group-item mb-3 border-4 border-dark">
