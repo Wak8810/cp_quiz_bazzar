@@ -1,13 +1,13 @@
 <div class="p-3">
-    <div class="card">
+    <div class="card bg-light">
         <div class="card-body">
-            <h5 class="card-title mt-3">クイズ一覧</h5>
+            <h5 class="card-title mt-3 fw-bold fs-4 text-dark ">クイズ一覧</h5>
             <div class="my-5">
                 <% @quizzes.each do |quiz| %>
                     <ul class="list-group">
-                        <li class="list-group-item mb-3">
-                          <%= link_to quiz.title, user_quiz_path(current_user, quiz) %>
-                          <%= link_to "💬", user_quiz_comments_path(current_user, quiz), class: 'btn btn-primary' %>
+                        <li class="list-group-item mb-3  border-3 border-dark">
+                          <%= link_to quiz.title, user_quiz_path(current_user, quiz), class: 'fw-bold fs-4 text-dark text-decoration-none' %>
+                          <%= link_to "💬", user_quiz_comments_path(current_user, quiz), class: 'btn btn-primary border border-dark float-end' %>
                         </li>
                     </ul>
                 <% end %>
