@@ -70,19 +70,14 @@ nav {
 /* ここから下はperplexityのおすすめ。使う際は注意。 */
 
 body {
-  background-color: #343a40; /* 全体の背景色 */
   color: white; /* 全体の文字色 */
 }
 
-.card {
+.card-border {
+  background-color: #3d464f;
   border: 3px solid black;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
-
-.card-custom-bg {
-  background-color: #3d464f; 
-}
-
 
 .card-body {
   padding: 15px;
@@ -114,11 +109,10 @@ body {
 }
 
 .card-new {
-  background-color: #3d464f; /* ログインフォームの背景色を変更 */
+  background-color: #3d464f;
   border: 3px solid black;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
-
 
 .centering {
   width: 80%;
