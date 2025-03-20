@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       log_in(user)
       redirect_to root_path, notice: "ログインしました"
     else
-      #alertを出したい(modelかな？)
+      # alertを出したい(modelかな？)
       render "new", status: :unprocessable_entity
     end
   end
