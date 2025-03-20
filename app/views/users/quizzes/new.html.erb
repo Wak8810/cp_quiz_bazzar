@@ -6,7 +6,6 @@
         <%= render 'form', form: f %>
         <%= f.fields_for :quiz_options do |quiz_option| %>
 		<li class="list-group-item mb-3 border-4 border-dark">
-          <%# <%= quiz_option.label :correct, "正解" , style: "color:white" %> 
 		  <%= quiz_option.label :correct, class: "text-white" do %>
 		    <i class="fa-regular fa-circle text-success"></i>
 		  <% end %>
@@ -14,8 +13,6 @@
 		  <%= quiz_option.label :correct, class: "text-white" do %>
             <i class="fa-solid fa-xmark text-danger"></i>
           <% end %>
-          <%# <%= quiz_option.label :correct, "不正解", style: "color:white"%> 
-
           <%= quiz_option.radio_button :correct, false, checked: true %>
           <%= quiz_option.text_field :content, placeholder: "選択肢" %>
 		</li>
