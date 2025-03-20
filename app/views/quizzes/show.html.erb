@@ -1,35 +1,5 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div class="card bg-dark text-white">
-        <div class="card-body px-5">
-          <h5 class="card-title text-center"><%= @quiz.content %></h5>
-          <%= turbo_frame_tag "quiz_result_#{@quiz.id}" do %>
-            <%= form_with(model: @solved_quiz, url: current_user ? quiz_solved_quizzes_path(@quiz) : guest_result_quiz_solved_quiz_path(@quiz), method: :post, data: { turbo_frame: "quiz_result_#{@quiz.id}"} ) do |f| %>
-                <ul class="list-group list-group-flush gap-3">
-                <% @quiz.quiz_options.shuffle.each_with_index do |option, index| %>
-                    <li class="list-group-item bg-secondary text-white rounded mb-2">
-                    <div class="form-check">
-                        <%= f.radio_button :quiz_option_id, option.id, class: "form-check-input", id: "option-#{option.id}", checked: (index == 0) %>
-                        <%= f.label :quiz_option_id, option.content, class: "form-check-label", for: "option-#{option.id}" %>
-                    </div>
-                    </li>
-                <% end %>
-                </ul>
-                <%= f.submit "解答する", class: "btn btn-primary mt-3" %>
-            <% end %>
-          <% end %>
-
-          <!-- 非ログインユーザー用の解答結果表示 -->
-          <% if current_user.nil? %>
-            <div id="guest_result_frame">
-              <p id="result_text"></p>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
+<div id="result_frame">
+    <p id="result_text">
+        <%= render 'quizzes/show_quiz' %>
+    </p>
 </div>
-
-

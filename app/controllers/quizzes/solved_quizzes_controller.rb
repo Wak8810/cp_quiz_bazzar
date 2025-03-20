@@ -2,7 +2,10 @@ class Quizzes::SolvedQuizzesController < Quizzes::ApplicationController
     def create
         @solved_quiz = @quiz.solved_quizzes.build(solved_quiz_params.merge(user_id: current_user.id))
         @solved_quiz.save!
-        redirect_to quizzes_path
+        @result = @solved_quiz.quiz_option.correct
+        respond_to do |format|
+            format.turbo_stream { render turbo_stream: turbo_stream.replace("result_frame", partial: "quizzes/result", locals: { result: @result }) }
+        end
     end
 
     # todo 非ログインユーザーでも解答出来るように
@@ -10,9 +13,9 @@ class Quizzes::SolvedQuizzesController < Quizzes::ApplicationController
         selected_answer = @quiz.quiz_options.find(params[:solved_quiz][:quiz_option_id])
         @result = selected_answer.correct
         respond_to do |format|
-            format.turbo_stream { render turbo_stream: turbo_stream.replace("guest_result_frame", partial: "quizzes/guest_result", locals: { result: @result }) }
+            format.turbo_stream { render turbo_stream: turbo_stream.replace("result_frame", partial: "quizzes/result", locals: { result: @result }) }
         end
-      end
+    end
 
     private
 
