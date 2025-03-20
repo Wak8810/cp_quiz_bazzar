@@ -1,18 +1,27 @@
-<p>タイトル： <br><%= @quiz.title %></p>
-<p>問題： <br><%= @quiz.content %></p>
-<p>解説： <br><%= @quiz.explanation %></p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card bg-dark text-white">
+        <div class="card-body px-5">
+          <h5 class="card-title text-center"><%= @quiz.content %></h5>
 
-<% if current_user.likes.find_by(quiz: @quiz) %>
-    <%= button_to "いいね取り消し", quiz_like_path(@quiz), method: :delete %>
-<% else %>
-    <%= button_to "いいね!", quiz_likes_path(@quiz), method: :post %>
-<% end %>
+          <%= form_with(model: @solved_quiz, url: quiz_solved_quizzes_path(@quiz)) do |f| %>
+            <ul class="list-group list-group-flush gap-3">
+              <% @quiz.quiz_options.shuffle.each_with_index do |option, index| %>
+                <li class="list-group-item bg-secondary text-white rounded mb-2">
+                  <div class="form-check">
+                    <%= f.radio_button :quiz_option_id, option.id, class: "form-check-input", id: "option-#{option.id}", checked: (index == 0) %>
+                    <%= f.label :quiz_option_id, option.content, class: "form-check-label", for: "option-#{option.id}" %>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
+            <%= f.submit "解答する", class: "btn btn-primary mt-3" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= @quiz.likes.count %>
-<%= form_with(model: @solved_quiz, url: quiz_solved_quizzes_path(@quiz), method: :post) do |f| %>
-    <% @quiz.quiz_options.shuffle.each_with_index do |option, index| %>
-        <%= f.label :quiz_option_id, option.content %>
-        <%= f.radio_button :quiz_option_id, option.id, checked: (index == 0) %>
-    <% end %>
-    <%= f.submit "解答を投稿", class: "btn btn-primary" %>
-<% end %>
+
