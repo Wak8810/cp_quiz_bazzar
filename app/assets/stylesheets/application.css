@@ -56,6 +56,16 @@ nav {
   background-color: #dcdcdc;
 }
 
+.heart-liked-icon-color{
+  color: red;
+}
+
+.heart-icon-color{
+  color: black;
+}
+
+.comment-dot-icon-color{
+  color: black;
 /* ここから下はperplexityのおすすめ。使う際は注意。 */
 
 body {

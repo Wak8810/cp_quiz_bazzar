@@ -1,24 +1,56 @@
 <div class="p-5">
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <% @quizzes.each do |quiz| %>
-            <div class="col">
-                <div class="card px-3 card-base-color">
-                    <div class="card-body">
-                        <h5 class="card-title d-flex justify-content-center"><%= quiz.title %></h5>
-                        <div class="d-flex justify-content-between">
-                            <div>
-                                <%= link_to quiz_path(quiz) do %>
-                                    <button type="button" class="btn btn-light">挑戦する</button>
-                                <% end %>
-                            </div>
-                            <div>
-                                <div>💗 <%= quiz.likes.count %></div>
-                                <div>💭 <%= quiz.comments.count %></div>
+            <% if quiz.quiz_options.present? %>
+                <div class="col">
+                    <div class="card px-3 card-base-color">
+                        <div class="card-body">
+                            <h5 class="card-title d-flex justify-content-center"><%= quiz.title %></h5>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <%= link_to quiz_path(quiz) do %>
+                                        <button type="button" class="btn btn-light">挑戦する</button>
+                                    <% end %>
+                                </div>
+                                <div>
+                                    <div class="d-flex align-items-center">
+                                        <% if current_user %>
+                                            <div>
+                                                <% if current_user.likes.find_by(quiz: quiz).present? %>
+                                                    <%= button_to quiz_likes_path(quiz), class: "btn btn-link" , method: :delete do %>
+                                                        <i class="fa-solid fa-heart heart-liked-icon-color"></i>
+                                                    <% end %>
+                                                <% else %>
+                                                    <%= button_to quiz_likes_path(quiz), class: "btn btn-link" , method: :post do %>
+                                                        <i class="fa-regular fa-heart heart-liked-icon-color"></i>
+                                                    <% end %>
+                                                <% end %>
+                                            </div>
+                                        <% else %>
+                                            <div>
+                                                <i class="fa-solid fa-heart heart-icon-color"></i>
+                                            </div>
+                                        <% end %>
+                                        <div>
+                                            <%= quiz.likes.count %>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <%= link_to new_quiz_comment_path(quiz), class: 'btn btn-link' do %>
+                                                <i class="fa-regular fa-comment-dots comment-dot-icon-color"></i> 
+                                            <% end %>
+                                        </div>
+                                        <div>
+                                            <%= quiz.comments.count %>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            <% end %>
         <% end %>
     </div>
 </div>
