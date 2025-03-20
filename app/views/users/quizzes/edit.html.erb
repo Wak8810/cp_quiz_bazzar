@@ -1,4 +1,11 @@
-<%= form_with(model: [@user, @quiz]) do |f| %>
-    <%= render 'form', form: f %>
-    <%= f.submit "クイズを編集", class: "btn btn-primary" %>
-<% end %>
+<div class="p-3">
+    <div class="card bg-dark">
+        <div class="card-body">
+            <h5 class="card-title mt-3 fw-bold fs-4 text-light">クイズを編集</h5>
+            <%= form_with(model: [@user, @quiz]) do |f| %>
+                <%= render 'form', form: f %>
+                <%= f.submit "クイズを編集", class: "btn btn-primary" %>
+            <% end %>
+        </div>
+    </div>
+</div>

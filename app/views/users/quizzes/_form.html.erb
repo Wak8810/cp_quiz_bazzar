@@ -1,3 +1,18 @@
-<p><%= form.text_field :title, placeholder: "タイトル" %></p>
-<p><%= form.text_area :content, placeholder: "問題文" %></p>
-<p><%= form.text_area :explanation, placeholder: "解説文" %></p>
+<div class="mb-3 text-light">
+    <%= form.label :title, "タイトル" %>
+    <div class="mb-0">
+        <%= form.text_field :title, class: "form-control w-auto", :style => "resize: none;", placeholder: "タイトル" %>
+    </div>
+</div>
+<div class="mb-3 text-light">
+    <%= form.label :content, "問題文" %>
+    <div class="mb-0">
+        <%= form.text_area :content, class: "form-control", :style => "resize: none;", placeholder: "問題文" %>
+    </div>
+</div>
+<div class="mb-3 text-light">
+    <%= form.label :explanation, "答えの解説" %>
+    <div class="mb-0">
+        <%= form.text_area :explanation, class: "form-control", :style => "resize: none;", placeholder: "解説文" %>
+    </div>
+</div>
