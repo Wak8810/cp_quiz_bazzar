@@ -46,3 +46,15 @@ nav {
 .card-base-color{
   background-color: #dcdcdc;
 }
+
+.heart-liked-icon-color{
+  color: red;
+}
+
+.heart-icon-color{
+  color: black;
+}
+
+.comment-dot-icon-color{
+  color: black;
+}
