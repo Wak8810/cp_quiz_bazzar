@@ -66,19 +66,21 @@ nav {
 
 .comment-dot-icon-color{
   color: black;
+}
 /* ここから下はperplexityのおすすめ。使う際は注意。 */
 
 body {
-  background-color: #343a40; /* 全体の背景色 */
   color: white; /* 全体の文字色 */
 }
 
-.card {
-  border: none; /* カードのボーダーを削除 */
+.card-border {
+  background-color: #3d464f;
+  border: 3px solid black;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 .card-body {
-  padding: 20px;
+  padding: 15px;
 }
 
 .card-title {
@@ -104,4 +106,19 @@ body {
 .col-md-8 {
   width: 80%;
   margin-top: 30px;
+}
+
+.card-new {
+  background-color: #3d464f;
+  border: 3px solid black;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.centering {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.icon-padding{
+  padding: 0.375rem 0.75rem;
 }
