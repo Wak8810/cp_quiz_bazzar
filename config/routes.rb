@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   resources :quizzes, only: %i[index show] do
-    resources :solved_quizzes, only: %i[create], module: :quizzes 
+    resources :solved_quizzes, only: %i[create], module: :quizzes
     resources :likes, only: %i[create destroy], module: :quizzes
     resources :comments, only: %i[index new create destroy], module: :quizzes
   end

@@ -10,5 +10,4 @@ class Quizzes::LikesController < Quizzes::ApplicationController
         @like.destroy!
         redirect_to quiz_path(@quiz)
     end
-
 end
