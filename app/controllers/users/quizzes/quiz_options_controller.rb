@@ -1,10 +1,10 @@
 class Users::Quizzes::QuizOptionsController < Users::Quizzes::ApplicationController
-    before_action :set_quiz_option, only: [:edit, :update, :destroy]
+    before_action :set_quiz_option, only: [ :edit, :update, :destroy ]
 
     def index
         @quiz_options = @quiz.quiz_options
     end
-    
+
     def new
         @quiz_option = @quiz.quiz_options.build
     end
@@ -12,7 +12,7 @@ class Users::Quizzes::QuizOptionsController < Users::Quizzes::ApplicationControl
     def create
         @quiz_option = @quiz.quiz_options.build(quiz_option_params)
         if @quiz_option.save
-            redirect_to user_quiz_quiz_options_path(current_user, @quiz)
+            redirect_to user_quiz_path(current_user, @quiz)
         else
             # フラッシュの文
             render :new
@@ -45,5 +45,4 @@ class Users::Quizzes::QuizOptionsController < Users::Quizzes::ApplicationControl
     def set_quiz_option
         @quiz_option = @quiz.quiz_options.find(params[:id])
     end
-
 end
