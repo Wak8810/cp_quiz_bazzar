@@ -5,6 +5,7 @@ class Users::QuizzesController < Users::ApplicationController
 
     def show
         @quiz = Quiz.find(params[:id])
+        @quiz_options = @quiz.quiz_options
     end
 
     def new

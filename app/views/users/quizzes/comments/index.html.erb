@@ -1,23 +1,29 @@
 <div class="p-3">
-    <div class="card">
-        <div class="card-body">
-          <h5 class="card-title mt-3 fw-bold fs-4 text-dark">コメント</h5>
-          <h6 class="card-title mt-3 fw-bold fs-2 text-dark"> <%= @quiz.title %> </h6>
-            <div class="my-5">
-                <% @quiz.comments.each do |comment| %>
-                    <ul class="list-group">
-                      <li class="list-group-item mb-3 border-4 border-dark">
-                        <%= comment.content %>
-                            <div class="mt-2">
-                            <strong>投稿者:</strong> <%= comment.user.name %>
-                            </div>
-                        <div class="mt-2">
-                          <strong>投稿日:</strong> <%= comment.created_at.strftime('%y年%m月%d日 %h:%m') %>
-                        </div>
-                      </li>
-                    </ul>
-                <% end %>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title mt-3 fw-bold fs-4 text-dark">コメント</h5>
+      <h6 class="card-title mt-3 fw-bold fs-2 text-dark"> <%= @quiz.title %> </h6>
+      <div class="my-5">
+
+        <% @quiz.comments.each do |comment| %>
+          <ul class="list-group">
+            <li class="list-group-item mb-3 border-4 border-dark">
+              <%= comment.content %>
+              <div class="mt-2">
+                <strong>投稿者:</strong> <%= comment.user.name %>
             </div>
-        </div>
+            <div class="mt-2">
+              <strong>投稿日:</strong> <%= comment.created_at.strftime('%y年%m月%d日 %h:%m') %>
+          </div>
+            </li>
+          </ul>
+        <% end %>
+      </div>
     </div>
+    <% if @quiz.comments.any? == false %>
+      <div class="alert alert-info">
+        コメントがありません
+      </div>
+    <% end %>
+  </div>
 </div>
