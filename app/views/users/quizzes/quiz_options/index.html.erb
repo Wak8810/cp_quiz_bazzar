@@ -1,7 +1,38 @@
-<% @quiz_options.each do |option| %>
-    <p><%= option.content %></p>
-    <p><%= option.correct %></p>
-    <p><%= link_to "編集", edit_user_quiz_quiz_option_path(current_user, @quiz, option) %>
-    <%= button_to "削除", user_quiz_quiz_option_path(current_user, @quiz, option), method: :delete, data: { turbo_confirm: "削除してよろしいですか？" } %></p>
-<% end %>
-<%= link_to "選択肢追加", new_user_quiz_quiz_option_path(current_user, @quiz) %>
+<div class="p-3">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title mt-3 fw-bold fs-4 text-dark">選択肢</h5>
+            <h6 class="card-title mt-3 fw-bold fs-2 text-dark"><%= @quiz.title %></h6>
+            <div class="my-5">
+                <% @quiz_options.each do |option| %>
+                <div class="border-box p-3 mb-4">
+                    <p><%= option.content %></p>
+                    <% if option.correct %>
+                        <span class="border-box text-success">正解</span>
+                    <% else %>
+                        <span class="border-box text-danger">不正解</span>
+                    <% end %>
+
+                    <div class="btn-group mt-2" role="group" aria-label="選択肢の操作">
+                        <%= link_to edit_user_quiz_quiz_option_path(current_user, @quiz, option), 
+                              class: 'btn btn-outline-primary d-inline-flex align-items-center' do %>
+                            <i class="fa-solid fa-pen-to-square me-1"></i>
+                        <% end %>
+
+                        <%= button_to user_quiz_quiz_option_path(current_user, @quiz, option), 
+                              method: :delete, 
+                              data: { turbo_confirm: "削除してよろしいですか？" },
+                              class: 'btn btn-outline-danger d-inline-flex align-items-center' do %>
+                            <i class="fa-solid fa-trash me-1"></i> 
+                        <% end %>
+                    </div>
+                </div>
+                <% end %>
+
+                <%= link_to "選択肢追加", new_user_quiz_quiz_option_path(current_user, @quiz), 
+                      class: 'btn btn-outline-success mt-3' %>
+            </div>
+        </div>
+    </div>
+</div>
+
