@@ -7,7 +7,11 @@
                     <ul class="list-group">
                         <li class="list-group-item mb-3  border-3 border-dark">
                           <%= link_to quiz.title, user_quiz_path(current_user, quiz), class: 'fw-bold fs-4 text-dark text-decoration-none' %>
-                          <%= link_to "💬", user_quiz_comments_path(current_user, quiz), class: 'btn btn-primary border border-dark float-end' %>
+                        <%= link_to user_quiz_comments_path(current_user, quiz), 
+                          class: 'float-end',
+                          aria: { label: "コメントを見る" } do %>
+                          <i class="fa-regular fa-comment-dots fs-3 comment-dot-icon-color"></i>
+                        <% end %>
                         </li>
                     </ul>
                 <% end %>
