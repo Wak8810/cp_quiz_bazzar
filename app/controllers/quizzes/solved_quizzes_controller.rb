@@ -6,14 +6,13 @@ class Quizzes::SolvedQuizzesController < Quizzes::ApplicationController
     end
 
     # todo 非ログインユーザーでも解答出来るように
-    # def guest_result
-    #     @result = (true or false)
-    #     if @result
-    #         正解を表示
-    #     else
-    #         不正解を表示
-    #     end
-    # end
+    def guest_result
+        selected_answer = @quiz.quiz_options.find(params[:solved_quiz][:quiz_option_id])
+        @result = selected_answer.correct
+        respond_to do |format|
+            format.turbo_stream { render turbo_stream: turbo_stream.replace("guest_result_frame", partial: "quizzes/guest_result", locals: { result: @result }) }
+        end
+      end
 
     private
 
