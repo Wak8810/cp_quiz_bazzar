@@ -118,3 +118,7 @@ body {
   width: 80%;
   margin: 0 auto;
 }
+
+.icon-padding{
+  padding: 0.375rem 0.75rem;
+}

@@ -6,11 +6,10 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase)
     if user&.authenticate(params[:session][:password])
       reset_session
-      # 成功のflash
       log_in(user)
-      redirect_to(user)
+      redirect_to root_path, notice: "ログインしました"
     else
-      # エラーのflash
+      # alertを出したい(modelかな？)
       render "new", status: :unprocessable_entity
     end
   end
