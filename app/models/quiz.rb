@@ -7,4 +7,5 @@ class Quiz < ApplicationRecord
     validates :title, presence: { message: "タイトルを入力してください" }
     validates :content, presence: { message: "問題文を入力してください" }
     validates :explanation, presence: { message: "解説を入力してください" }
+    accepts_nested_attributes_for :quiz_options, allow_destroy: true, reject_if: :all_blank 
 end
