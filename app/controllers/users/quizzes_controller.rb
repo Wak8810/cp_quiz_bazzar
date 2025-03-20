@@ -49,7 +49,7 @@ class Users::QuizzesController < Users::ApplicationController
         # params.require(:quiz).permit(:title, :content, :hint, :explanation)
         params.require(:quiz).permit(
             :title, :content, :hint, :explanation,
-            quiz_options_attributes: [:id, :content, :correct, :_destroy]
+            quiz_options_attributes: [ :id, :content, :correct, :_destroy ]
         )
     end
 end
