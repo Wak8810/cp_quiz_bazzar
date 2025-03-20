@@ -16,7 +16,7 @@
                                     <div class="d-flex align-items-center">
                                         <% if current_user %>
                                             <div>
-                                                <% if (like = current_user.likes.find_by(quiz: quiz)).present? %>
+                                                <% if current_user.likes.find_by(quiz: quiz).present? %>
                                                     <%= button_to quiz_likes_path(quiz), class: "btn btn-link" , method: :delete do %>
                                                         <i class="fa-solid fa-heart heart-liked-icon-color"></i>
                                                     <% end %>
