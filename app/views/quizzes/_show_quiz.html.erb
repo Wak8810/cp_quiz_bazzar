@@ -6,7 +6,22 @@
           <h5 class="card-title text-center"><%= @quiz.content %></h5>
           <%= turbo_frame_tag "quiz_result_#{@quiz.id}" do %>
             <%= form_with(model: @solved_quiz, url: current_user ? quiz_solved_quizzes_path(@quiz) : guest_result_quiz_solved_quiz_path(@quiz), method: :post, data: { turbo_frame: "quiz_result_#{@quiz.id}"} ) do |f| %>
-                <ul class="list-group list-group-flush gap-3">
+            <div data-controller="collapse">
+                <button
+                    type="button"
+                    data-action="click->collapse#toggle"
+                    class="btn btn-info mb-3"
+                >
+                選択肢を表示する
+              </button>
+              
+              <ul class="list-group list-group-flush gap-3">
+              <div 
+                  data-collapse-target="content"
+                  class="mt-3 d-none"
+              >
+
+              <ul class="list-group list-group-flush gap-3">
                 <% @quiz.quiz_options.shuffle.each_with_index do |option, index| %>
                     <li class="list-group-item bg-secondary text-white rounded mb-2">
                     <div class="form-check">
@@ -17,6 +32,7 @@
                 <% end %>
                 </ul>
                 <%= f.submit "解答する", class: "btn btn-primary mt-3" %>
+              </div>
             <% end %>
           <% end %>
         </div>

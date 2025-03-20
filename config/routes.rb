@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   resources :quizzes, only: %i[index show] do
     resources :solved_quizzes, only: %i[create], module: :quizzes do
-      post 'guest_result', on: :member
+      post "guest_result", on: :member
     end
     resource :likes, only: %i[create destroy], module: :quizzes
     resources :comments, only: %i[index new create destroy], module: :quizzes
