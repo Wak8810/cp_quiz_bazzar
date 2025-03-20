@@ -74,11 +74,17 @@ body {
 }
 
 .card {
-  border: none; /* カードのボーダーを削除 */
+  border: 3px solid black;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
+.card-custom-bg {
+  background-color: #3d464f; 
+}
+
+
 .card-body {
-  padding: 20px;
+  padding: 15px;
 }
 
 .card-title {
@@ -104,4 +110,16 @@ body {
 .col-md-8 {
   width: 80%;
   margin-top: 30px;
+}
+
+.card-new {
+  background-color: #3d464f; /* ログインフォームの背景色を変更 */
+  border: 3px solid black;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+
+.centering {
+  width: 80%;
+  margin: 0 auto;
 }
