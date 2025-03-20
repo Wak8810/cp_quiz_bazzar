@@ -13,10 +13,10 @@
           <strong>作成したクイズ数:</strong> <%= @user.quizzes.count %>
         </li>
         <li class="list-group-item bg-secondary text-white rounded mb-2">
-          <strong>解答したクイズ数:</strong> <%= @user.solved_quizzes.count %>
+          <strong>解答したクイズ数:</strong> <%= @user.solved_quizzes.quiz_distinct.count %>
         </li>
         <li class="list-group-item bg-secondary text-white rounded mb-2">
-          <strong>正解したクイズ数:</strong> <%= @user.solved_quizzes.correct.count %>
+          <strong>正解したクイズ数:</strong> <%= @user.solved_quizzes.quiz_distinct.correct.count %>
         </li>
       </ul>
     </div>

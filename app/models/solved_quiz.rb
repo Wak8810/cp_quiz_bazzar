@@ -3,4 +3,5 @@ class SolvedQuiz < ApplicationRecord
     belongs_to :quiz
     belongs_to :quiz_option
     scope :correct, -> { joins(:quiz_option).where(quiz_option: { correct: true }) }
+    scope :quiz_distinct, -> { select(:quiz_id).distinct }
 end
