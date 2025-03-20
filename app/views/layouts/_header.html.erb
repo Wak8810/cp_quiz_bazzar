@@ -4,6 +4,7 @@
     <nav>
       <% if current_user %>
         <%= link_to 'クイズを投稿', new_user_quiz_path(current_user), class: 'nav-link' %>
+		<%= link_to 'ユーザー情報', user_path(current_user), class: 'nav-link' %>
         <%= link_to '作成済みクイズを閲覧', user_quizzes_path(current_user), class: 'nav-link' %>
         <%= link_to '回答履歴', user_solved_quizzes_path(current_user), class: 'nav-link' %>
         <%= button_to 'ログアウト', logout_path, class: 'btn nav-link', method: :delete %>
