@@ -67,7 +67,6 @@ nav {
 .comment-dot-icon-color{
   color: black;
 }
-/* ここから下はperplexityのおすすめ。使う際は注意。 */
 
 body {
   color: white; /* 全体の文字色 */
@@ -121,4 +120,17 @@ body {
 
 .icon-padding{
   padding: 0.375rem 0.75rem;
+}
+
+footer {
+  background-color: #fdb913;
+  position: fixed;
+  text-align: right;
+  align-items: center;
+  bottom: 0px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 100%;
+  
 }
