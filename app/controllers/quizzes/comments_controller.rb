@@ -2,7 +2,7 @@ class Quizzes::CommentsController < Quizzes::ApplicationController
     def index
         @comments = Comment.order(created_at: :desc)
     end
-    
+
     def new
         @comment = current_user.comments.build
     end
@@ -10,7 +10,7 @@ class Quizzes::CommentsController < Quizzes::ApplicationController
     def create
         @comment = current_user.comments.build(comment_params.merge(quiz: @quiz))
         if @comment.save
-            redirect_to  quiz_comments_path(@quiz)
+            redirect_to quiz_comments_path(@quiz)
         else
             render :new
         end
@@ -40,4 +40,3 @@ class Quizzes::CommentsController < Quizzes::ApplicationController
         params.require(:comment).permit(:content)
     end
 end
-
