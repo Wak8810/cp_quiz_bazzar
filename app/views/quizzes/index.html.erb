@@ -1,4 +1,5 @@
 <div class="p-5">
+    <%= render 'quizzes/index_sort_button' %>
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <% @quizzes.each do |quiz| %>
             <% if quiz.quiz_options.present? %>

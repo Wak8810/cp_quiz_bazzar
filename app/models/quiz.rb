@@ -9,6 +9,11 @@ class Quiz < ApplicationRecord
     validates :explanation, presence: { message: "解説を入力してください" }
     validate :validate_only_one_true
     accepts_nested_attributes_for :quiz_options, allow_destroy: true, reject_if: :all_blank
+    class << self
+        def like_desc
+            left_joins(:likes).group("quizzes.id").order("COUNT(likes.id) desc")
+        end
+    end
 
     private
 
