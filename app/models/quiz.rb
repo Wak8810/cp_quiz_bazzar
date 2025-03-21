@@ -11,7 +11,7 @@ class Quiz < ApplicationRecord
     accepts_nested_attributes_for :quiz_options, allow_destroy: true, reject_if: :all_blank
     class << self
         def like_desc
-            left_joins(:likes).group('quizzes.id').order('COUNT(likes.id) desc')
+            left_joins(:likes).group("quizzes.id").order("COUNT(likes.id) desc")
         end
     end
 
