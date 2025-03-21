@@ -142,7 +142,17 @@ footer {
   font-size: 1em;
 }
 
-.solved-quizzes-index-card {
+.border-graybockground {
   background-color: #3d464f;
   border: 3px solid black;
+}
+
+.white-background {
+  background-color: white;
+}
+
+.large-white-text {
+  font-size: 1.3em; /* または好きなサイズ */
+  color: white;
+  text-decoration: none;
 }
