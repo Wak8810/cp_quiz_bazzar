@@ -5,8 +5,10 @@ class QuizzesController < ApplicationController
             @quizzes = Quiz.order(created_at: :desc)
         elsif how_sort == "like"
             @quizzes = Quiz.like_desc
+        elsif how_sort == "buzz1d"
+            @quizzes = Quiz.like_desc.where(created_at: (1.days.ago)..(Time.now))
         else
-            @quizzes = Quiz.all
+            @quizzes = Quiz.order(created_at: :desc)
         end
     end
 
