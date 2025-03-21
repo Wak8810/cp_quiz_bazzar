@@ -1,28 +1,13 @@
 <div class="p-5">
+    <%= render 'quizzes/index_sort_button' %>
     <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="d-flex">
-            <div class="dropdown me-1">
-                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20">並び順</button>
-                <ul class="dropdown-menu">
-                    <li>
-                        <%= link_to root_path(sort: "desc"), method: :get, class: "dropdown-item" do %>
-                            新着順
-                        <% end %>
-                    </li>
-                    <li>
-                        <%= link_to root_path(sort: "like"), method: :get, class: "dropdown-item" do %>
-                            いいね順
-                        <% end %>
-                    </li>
-                </ul>
-            </div>
-        </div>
         <% @quizzes.each do |quiz| %>
             <% if quiz.quiz_options.present? %>
                 <div class="col">
                     <div class="card px-3 card-base-color">
                         <div class="card-body">
-                            <h5 class="card-title d-flex justify-content-center"><%= quiz.title %></h5>
+                            <h5 class="card-title mb-2 d-flex justify-content-center"><%= quiz.title %></h5>
+                            <h6 class="card-subtitle d-flex justify-content-end text-body-secondary">作成者:<%= quiz.user.name %></h6>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <%= link_to quiz_path(quiz) do %>

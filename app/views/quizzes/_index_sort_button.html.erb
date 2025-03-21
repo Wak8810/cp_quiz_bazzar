@@ -1,0 +1,26 @@
+<div class="d-flex justify-content-end pb-3 pe-2">
+        <div class="dropdown me-1">
+            <% sort_options = { "desc" => "新着順", "like" => "いいね順", "buzz1d" => "いいね順(1日以内)" } %>
+            <% selected_sort = sort_options[params[:sort]] || "新着順" %>
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20">
+                <%= selected_sort %>
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <%= link_to root_path(sort: "desc"), method: :get, class: "dropdown-item" do %>
+                        新着順
+                    <% end %>
+                </li>
+                <li>
+                    <%= link_to root_path(sort: "like"), method: :get, class: "dropdown-item" do %>
+                        いいね順
+                    <% end %>
+                </li>
+                <li>
+                    <%= link_to root_path(sort: "buzz1d"), method: :get, class: "dropdown-item" do %>
+                        いいね順(1日以内)
+                    <% end %>
+                </li>
+            </ul>
+        </div>
+    </div>

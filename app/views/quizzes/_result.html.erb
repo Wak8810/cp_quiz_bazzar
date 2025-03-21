@@ -1,22 +1,36 @@
-<div id="result_frame">
-  <p id="result_text">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-8">
-          <div class="card bg-dark text-white">
-            <div class="card-body px-5">
-              <h5 class="card-title text-center pb-3"><%= @result ? "正解" : "不正解" %></h5>
-              <div class="d-flex justify-content-around">
-                <% if current_user %>
-                  <%= link_to "解いたクイズ一覧", user_solved_quizzes_path(current_user), remote: true, class: "btn nav-link" %>
-                <% end %>
-                <%= link_to '問題一覧に戻る', root_url, class: "btn nav-link d-inline-block w-auto px-3" %>
-              </div>
+<div id="result_frame" class="<%= @result ? 'celebrate' : 'not-celebrate' %>">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card text-white">
+          <div class="card-body px-5">
+            <h5 class="card-title text-center pb-3">
+              <%= @result ? "正解" : "不正解" %>
+            </h5>
+            <div class="d-flex justify-content-around">
+              <% if current_user %>
+                <%= link_to "解いたクイズ一覧", user_solved_quizzes_path(current_user), remote: true, class: "btn nav-link" %>
+              <% end %>
+              <%= link_to '問題一覧に戻る', root_url, class: "btn nav-link d-inline-block w-auto px-3" %>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </p>
+  </div>
 </div>
-  
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <div class="card explanation-card">
+        <div class="card-body">
+          <h3 class="card-title text-center">解説</h3>
+          <p class="card-text text-center">
+            <%= @quiz.explanation %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
