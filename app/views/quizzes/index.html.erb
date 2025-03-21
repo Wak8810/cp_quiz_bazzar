@@ -6,7 +6,8 @@
                 <div class="col">
                     <div class="card px-3 card-base-color">
                         <div class="card-body">
-                            <h5 class="card-title d-flex justify-content-center"><%= quiz.title %></h5>
+                            <h5 class="card-title mb-2 d-flex justify-content-center"><%= quiz.title %></h5>
+                            <h6 class="card-subtitle d-flex justify-content-end text-body-secondary">作成者:<%= quiz.user.name %></h6>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <%= link_to quiz_path(quiz) do %>
